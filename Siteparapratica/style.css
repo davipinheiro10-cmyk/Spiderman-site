@@ -65,13 +65,39 @@ body{
 
 .card .details{
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 20px;
+    height: 180px;
+    overflow: hidden;
     z-index: 2;
-    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    background: rgba(10, 10, 15, 0.9);
+    transition: height 0.5s;
 }
-.card .details .logo{
-    max-width: 180px;
 
+.card:hover .details{
+    height: 100%;
+}
+
+.card .details h3,
+.card .details p{
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.5s ease;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+.card:hover .details h3,
+.card:hover .details p{
+    opacity: 1;
+    max-height: 100px;
 }
