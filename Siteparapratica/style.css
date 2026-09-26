@@ -79,25 +79,60 @@ body{
     text-align: center;
     color: #fff;
     background: rgba(10, 10, 15, 0.9);
-    transition: height 0.5s;
+    opacity: 0;
+    pointer-events: none;
+    transition: height 0.5s, opacity 0.5s;
 }
 
 .card:hover .details{
-    height: 100%;
+    height: auto;
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.card .details h3,
-.card .details p{
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 0.3s ease, max-height 0.5s ease;
-    font-size: 13px;
+
+.card .details h3{
+    font-size: 16px;
+    font-weight: 700;
     margin-top: 6px;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: opacity 0.3s ease, grid-template-rows 0.5s ease;
+}
+
+.card .details h3 span{
+    overflow: hidden;
+    min-height: 0;
+}
+
+.card .details p{
+    font-size: 13px;
+    color: #ccc;
+    margin-top: 4px;
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: opacity 0.3s ease, grid-template-rows 0.5s ease;
+}
+
+.card .details p span{
+    overflow: hidden;
+    min-height: 0;
 }
 
 .card:hover .details h3,
 .card:hover .details p{
     opacity: 1;
-    max-height: 100px;
+    grid-template-rows: 1fr;
+}
+
+.card .details .logo{
+    width: 50px;
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.card:hover{
+    height: auto;
 }
